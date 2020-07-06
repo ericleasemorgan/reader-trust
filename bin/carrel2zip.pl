@@ -9,9 +9,10 @@
 
 
 # configure
-use constant ETC     => 'etc';
-use constant CARRELS => '/home/emorgan/reader-trust/carrels';
-use constant READER  => 'reader';
+use constant READERTRUST_HOME => $ENV{ 'READERTRUST_HOME' };
+use constant ETC              => 'etc';
+use constant CARRELS          => READERTRUST_HOME . '/carrels';
+use constant READER           => 'reader';
 
 # require
 use Archive::Zip;

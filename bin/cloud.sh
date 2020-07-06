@@ -7,7 +7,7 @@
 
 
 # configure
-CLOUD='../../bin/cloud.py'
+CLOUD='cloud.py'
 DB='./etc/reader.db'
 TABULATIONS='./tmp/tabulations'
 OUTPUT='./figures'

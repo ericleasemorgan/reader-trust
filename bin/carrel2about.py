@@ -14,6 +14,10 @@
 # June      26, 2020 - removed lower-casing of proper nouns, but the values themselves seem bogus
 
 
+# pre-require and configure
+import os
+READERTRUST_HOME = os.environ[ 'READERTRUST_HOME' ]
+
 # configure
 CLOUD      = 'cloud.py'
 CLOUDCOUNT = 150
@@ -25,7 +29,7 @@ NGRAMS     = 'ngrams.pl'
 PLOTFLESCH = 'plot-flesch.sh'
 PLOTSIZES  = 'plot-sizes.sh'
 TOPICMODEL = 'topic-model.py'
-TEMPLATE   = '/home/emorgan/reader-trust/etc/about.htm'
+TEMPLATE   = READERTRUST_HOME + '/etc/about.htm'
 
 # require
 from sqlalchemy import create_engine

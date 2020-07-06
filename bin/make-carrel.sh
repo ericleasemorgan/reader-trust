@@ -9,8 +9,8 @@
 
 
 # configure
-TEMPLATE='/home/emorgan/reader-trust/etc/template.slurm'
-CARRELS='/home/emorgan/reader-trust/carrels'
+TEMPLATE="$READERTRUST_HOME/etc/template.slurm"
+CARRELS="$READERTRUST_HOME/carrels"
 SLURM='./make-carrel.slurm'
 
 # check for input

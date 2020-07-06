@@ -6,7 +6,7 @@
 # August 17, 2019 - while investigating Philadelphia as a place to "graduate"
 
 
-CARRELS='/home/emorgan/reader-trust/carrels'
+CARRELS="$READERTRUST_HOME/carrels"
 LISTQUESTIONS='list-questions.pl'
 TXT='./txt/*.txt'
 PARALLEL='/export/bin/parallel'

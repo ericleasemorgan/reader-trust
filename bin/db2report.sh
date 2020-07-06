@@ -9,8 +9,8 @@
 
 
 # configure
-CARRELS='/home/emorgan/reader-trust/carrels'
-QUERIES='/home/emorgan/reader-trust/etc/queries.sql'
+CARRELS="$READERTRUST_HOME/carrels"
+QUERIES="$READERTRUST_HOME/etc/queries.sql"
 DB='etc/reader.db'
 
 # sanity check

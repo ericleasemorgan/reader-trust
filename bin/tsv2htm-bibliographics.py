@@ -8,8 +8,12 @@
 # June 26, 2020 - enhanced by Maria Carrol to be more meaningful and link to plain text
 
 
+# pre-require and configure
+import os
+READERTRUST_HOME = os.environ[ 'READERTRUST_HOME' ]
+
 # configure
-TEMPLATE = '/home/emorgan/reader-trust/etc/tsv2htm-bibliographics.htm'
+TEMPLATE = READERTRUST_HOME + '/etc/tsv2htm-bibliographics.htm'
 
 # require
 import pandas as pd

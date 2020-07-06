@@ -12,7 +12,7 @@
 CARREL2ABOUT='carrel2about.py'
 CARREL2JSON='carrel2json.py'
 CARREL2SEARCH='carrel2search.pl'
-CARRELS='/home/emorgan/reader-trust/carrels'
+CARRELS="$READERTRUST_HOME/carrels"
 DB2BIBLIOGRAPHICS='db2tsv-bibliographics.py'
 DB2TOPICMODEL='db2topicmodel.pl'
 LISTQUESTIONS='list-questions.sh'
@@ -80,7 +80,7 @@ $CARREL2SEARCH $CARREL > ./htm/search.htm
 # create data and page for topic modeling
 echo "==== make-pages.sh topic modeling corpus" >&2
 $DB2TOPICMODEL > ./etc/model-data.txt
-cp /home/emorgan/reader-trust/etc/template-model.htm ./htm/topic-model.htm
+cp "$READERTRUST_HOME/etc/template-model.htm" ./htm/topic-model.htm
 
 # done
 wait

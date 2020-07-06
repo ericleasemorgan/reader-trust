@@ -10,7 +10,7 @@
 
 
 # configure
-CARRELS='/home/emorgan/reader-trust/carrels'
+CARRELS="$READERTRUST_HOME/carrels"
 REDUCE='reduce.pl'
 PARALLEL='/export/bin/parallel'
 

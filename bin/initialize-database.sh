@@ -11,7 +11,7 @@
 # configure
 ETC='etc'
 DATABASE="reader.db"
-SCHEMA='/home/emorgan/reader-trust/etc/reader.sql'
+SCHEMA="$READERTRUST_HOME/etc/reader.sql"
 
 # sanity check
 if [[ -z "$1" ]]; then

@@ -19,7 +19,7 @@ PATH=$PYTHON_HOME:$PERL_HOME:$JAVA_HOME:$PATH
 export PATH
 
 # configure
-CARRELS='/home/emorgan/reader-trust/carrels'
+CARRELS="$READERTRUST_HOME/carrels"
 CORPUS="./etc/reader.txt"
 DB='./etc/reader.db'
 REPORT='./etc/report.txt'

@@ -1,7 +1,11 @@
 #!/usr/bin/env python
 
+# pre-require and configure
+import os
+READERTRUST_HOME = os.environ[ 'READERTRUST_HOME' ]
+
 # configure
-TEMPLATE = '/home/emorgan/reader-trust/etc/tsv2htm-questions.htm'
+TEMPLATE = READERTRUST_HOME + '/etc/tsv2htm-questions.htm'
 
 # require
 import sys

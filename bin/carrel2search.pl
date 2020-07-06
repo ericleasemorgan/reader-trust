@@ -9,11 +9,12 @@
 
 
 # configure
-use constant CARRELS  => '/home/emorgan/reader-trust/carrels';
-use constant DATABASE => 'etc/reader.db';
-use constant DRIVER   => 'SQLite';
-use constant QUERY    => 'SELECT id, title, summary, flesch, date, words, author FROM bib;';
-use constant TEMPLATE => '/home/emorgan/reader-trust/etc/template-search.htm';
+use constant READERTRUST_HOME => $ENV{ 'READERTRUST_HOME' };
+use constant CARRELS          => READERTRUST_HOME . '/carrels';
+use constant DATABASE         => 'etc/reader.db';
+use constant DRIVER           => 'SQLite';
+use constant QUERY            => 'SELECT id, title, summary, flesch, date, words, author FROM bib;';
+use constant TEMPLATE         => READERTRUST_HOME . '/etc/template-search.htm';
 
 # require
 use DBI;

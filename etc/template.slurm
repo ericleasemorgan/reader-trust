@@ -21,9 +21,8 @@
 #SBATCH --mail-type=ALL
 
 # make sane
-SOURCE='/home/emorgan/etc/reader-trust.cfg'
-cd /home/emorgan/reader-trust/carrels/##NAME##
-source $SOURCE
+source '/home/centos/etc/reader-trust.cfg'
+cd "$READERTRUST_HOME/carrels/##NAME##"
 
 # assume this carrel is to be re-created; re-initialize
 rm -rf adr                 &

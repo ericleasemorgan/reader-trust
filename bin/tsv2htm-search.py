@@ -6,8 +6,12 @@
 # June 25, 2020 - first working version
 
 
+# pre-require and configure
+import os
+READERTRUST_HOME = os.environ[ 'READERTRUST_HOME' ]
+
 # configure; the file created from the output of carrel2search.pl
-TEMPLATE = '/home/emorgan/reader-trust/tmp/search.htm'
+TEMPLATE = READERTRUST_HOME + '/tmp/search.htm'
 
 # require
 import sys

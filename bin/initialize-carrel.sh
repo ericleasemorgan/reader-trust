@@ -15,7 +15,7 @@
 
 
 # configure
-CARRELS='/home/emorgan/reader-trust/carrels'
+CARRELS="$READERTRUST_HOME/carrels"
 INITIALIZEDB='initialize-database.sh'
 
 # sanity check
