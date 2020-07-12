@@ -37,12 +37,17 @@ mkdir -p $TXT
 rm   -rf $PAGES/*.txt
 rm   -rf $TMP/$HTID.txt
 
+# initialize outputs name
+OUTPUT=$( echo $HTID | sed "s/\//-/g" )
+
+# don't to the work if it is already done
+if [[ -f "${TXT}/${OUTPUT}.txt" ]]; then exit 0; fi
+
 # harvest each page
 seq 1 $MAXIMUM | parallel $HARVEST $HTID
 
 # build the book and output
 BOOK=$( cat $PAGES/*.txt )
-OUTPUT=$( echo $HTID | sed "s/\//-/g" )
 echo -e "$BOOK" > "${TXT}/${OUTPUT}.txt"
 
 # compute the number of pages in the document
