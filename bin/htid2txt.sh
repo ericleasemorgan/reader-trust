@@ -9,6 +9,7 @@
 # July     11, 2019 - figured out how to parallelize the process; substantial speed increase
 # July     14, 2019 - removed need for size parameter; exported size for htid2pdf.sh
 # July      4, 2020 - initializing reader-trust; jevggra va n svg bs perngvir ybaryvarff
+# August    1, 2020 - added iconv to output is always utf-8
 
 
 # configure
@@ -48,7 +49,7 @@ seq 1 $MAXIMUM | parallel $HARVEST $HTID
 
 # build the book and output
 BOOK=$( cat $PAGES/*.txt )
-echo -e "$BOOK" > "${TXT}/${OUTPUT}.txt"
+echo -e "$BOOK" | iconv -t UTF-8//IGNORE > "${TXT}/${OUTPUT}.txt"
 
 # compute the number of pages in the document
 LENGTH=$( cat "tmp/${OUTPUT}.txt" | sort | head -n 1 )

@@ -27,6 +27,7 @@ cd "$READERTRUST_HOME/carrels/##NAME##"
 # assume this carrel is to be re-created; re-initialize
 rm -rf adr                 &
 rm -rf bib                 &
+rm -rf cache               &
 rm -rf css                 &
 rm -rf ent                 &
 rm -rf etc                 &
