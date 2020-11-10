@@ -12,7 +12,6 @@
 # configure
 CARRELS="$READERTRUST_HOME/carrels"
 REDUCE='reduce.pl'
-PARALLEL='/export/bin/parallel'
 
 # sanity check
 if [[ -z "$1" ]]; then
@@ -32,34 +31,34 @@ find "$CARRELS/$NAME" -name '*.bib' -exec $REDUCE "$CARRELS/$NAME" bib {} \;
 echo "===== Reducing email addresses" >&2
 cd "$CARRELS/$NAME"
 mkdir -p ./tmp/sql-adr
-find ./adr -name "*.adr" | $PARALLEL --will-cite adr2sql.pl
+find ./adr -name "*.adr" | parallel --will-cite adr2sql.pl
 reduce-adr.sh
 
 # keywords
 echo "===== Reducing keywords" >&2
 cd "$CARRELS/$NAME"
 mkdir -p ./tmp/sql-wrd
-find ./wrd -name "*.wrd" | $PARALLEL --will-cite wrd2sql.pl
+find ./wrd -name "*.wrd" | parallel --will-cite wrd2sql.pl
 reduce-wrd.sh
 
 # urls
 echo "===== Reducing urls" >&2
 cd "$CARRELS/$NAME"
 mkdir -p ./tmp/sql-url
-find ./urls -name "*.url" | $PARALLEL --will-cite url2sql.pl
+find ./urls -name "*.url" | parallel --will-cite url2sql.pl
 reduce-url.sh
 
 # entities
 echo "===== Reducing named entities" >&2
 cd "$CARRELS/$NAME"
 mkdir -p ./tmp/sql-ent
-find ./ent -name "*.ent" | $PARALLEL --will-cite ent2sql.pl
+find ./ent -name "*.ent" | parallel --will-cite ent2sql.pl
 reduce-ent.sh
 
 # pos
 echo "===== Reducing parts of speech" >&2
 cd "$CARRELS/$NAME"
 mkdir -p ./tmp/sql-pos
-find ./pos -name "*.pos" | $PARALLEL --will-cite pos2sql.pl
+find ./pos -name "*.pos" | parallel --will-cite pos2sql.pl
 reduce-pos.sh
 

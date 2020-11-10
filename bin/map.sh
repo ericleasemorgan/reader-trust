@@ -15,7 +15,6 @@
 # configure
 TXT='txt';
 CACHE='cache'
-PARALLEL='/export/bin/parallel'
 
 # sanity check
 if [[ -z "$1" ]]; then
@@ -28,16 +27,16 @@ NAME=$1
 INPUT="$TXT"
 
 # extract addresses, urls, and keywords
-find "$INPUT" -name '*.txt' | $PARALLEL --will-cite txt2adr.sh  &
-find "$INPUT" -name '*.txt' | $PARALLEL --will-cite txt2urls.sh &
-find "$INPUT" -name '*.txt' | $PARALLEL --will-cite file2bib.sh & 
+find "$INPUT" -name '*.txt' | parallel --will-cite txt2adr.sh  &
+find "$INPUT" -name '*.txt' | parallel --will-cite txt2urls.sh &
+find "$INPUT" -name '*.txt' | parallel --will-cite file2bib.sh & 
 
 # extract parts-of-speech and named-entities
-find "$INPUT" -name '*.txt' | $PARALLEL --will-cite txt2ent.sh &
-find "$INPUT" -name '*.txt' | $PARALLEL --will-cite txt2pos.sh &
+find "$INPUT" -name '*.txt' | parallel --will-cite txt2ent.sh &
+find "$INPUT" -name '*.txt' | parallel --will-cite txt2pos.sh &
 
 # extract keywords
-find "$INPUT" -name '*.txt' | $PARALLEL --will-cite txt2keywords.sh &
+find "$INPUT" -name '*.txt' | parallel --will-cite txt2keywords.sh &
 
 # done
 wait

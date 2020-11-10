@@ -12,10 +12,11 @@
 
 
 # enhance environment
-PERL_HOME='/export/perl/bin'
-JAVA_HOME='/export/java/bin'
-PYTHON_HOME='/export/python/bin'
-PATH=$PYTHON_HOME:$PERL_HOME:$JAVA_HOME:$PATH
+#PERL_HOME='/export/perl/bin'
+#JAVA_HOME='/export/java/bin'
+PYTHON_HOME='/data-disk/python/bin'
+#PATH=$PYTHON_HOME:$PERL_HOME:$JAVA_HOME:$PATH
+PATH=$PYTHON_HOME:$PATH
 export PATH
 
 # configure
@@ -62,7 +63,7 @@ cat ./tmp/update-bibliographics.sql | sqlite3 $DB
 echo "Building study carrel named $NAME" >&2
 
 # start tika
-java -jar /export/lib/tika/tika-server.jar &
+java -jar /data-disk/lib/tika-server.jar &
 PID=$!
 sleep 10
 
