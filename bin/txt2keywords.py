@@ -14,9 +14,11 @@
 # Charlie Harper <crh92@case.edu>
 
 # June 	   10, 2020 - converted model from yake to scake to improve keywords
+# November 26, 2020 - configured model; on Thanksgiving in Lancaster during a pandemic
 
 # configure
 TOPN   = 0.005
+MODEL  = 'en_core_web_lg'
 
 # require
 import textacy.preprocessing
@@ -48,7 +50,7 @@ id = os.path.basename( os.path.splitext( file )[ 0 ] )
 
 # initialize model
 maximum = len( text ) + 1
-model   = spacy.load( 'en_core_web_sm', max_length=maximum )
+model   = spacy.load( MODEL, max_length=maximum )
 doc     = model( text )
 
 # output a header

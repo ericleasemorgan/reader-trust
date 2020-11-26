@@ -5,13 +5,14 @@
 # Eric Lease Morgan <emorgan@nd.edu>
 # (c) University of Notre Dame and distributed under a GNU Public License
 
-# July 1, 2018 - first cut, or there abouts
-# June 6, 2020 - added language models for biomedical text; Charlie Harper <crh92@case.edu> 
-# June 8, 2020 - added maximum length to accommodate large files
+# July      1, 2018 - first cut, or there abouts
+# June      6, 2020 - added language models for biomedical text; Charlie Harper <crh92@case.edu> 
+# June      8, 2020 - added maximum length to accommodate large files
+# November 26, 2020 - configured model; on Thanksgiving in Lancaster during a pandemic
 
 
 # configure
-MODELS = [ 'en_core_web_sm' ]
+MODELS = [ 'en_core_web_lg' ]
 
 # require
 from nltk import *

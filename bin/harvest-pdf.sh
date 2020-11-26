@@ -5,9 +5,10 @@
 # Eric Lease Morgan <emorgan@nd.edu>
 # (c) University of Notre Dame; distributed under a GNU Public License
 
-# July 11, 2019 - first cut; the result of refactoring
-# July 14, 2019 - a certain type of creativity
-# July  4, 2020 - initializing reader-trust; jevggra va n svg bs perngvir ybaryvarff
+# July     11, 2019 - first cut; the result of refactoring
+# July     14, 2019 - a certain type of creativity
+# July      4, 2020 - initializing reader-trust; jevggra va n svg bs perngvir ybaryvarff
+# November 26, 2020 - changed output to jpg, and this was a surprise; on Thanksgiving in Lancaster during a pandemic
 
 
 # configure
@@ -30,5 +31,5 @@ PAGE=$2
 
 # get content, capture result code, and rest
 ITEM=$( printf "%04d" $PAGE )
-$HARVEST $HTID $PAGE > "$PAGES/page-$ITEM.png"
+$HARVEST $HTID $PAGE > "$PAGES/page-$ITEM.jpg"
 

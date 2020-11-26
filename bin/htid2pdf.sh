@@ -9,6 +9,7 @@
 # July     11, 2019 - figured out how to parallelize the process; substantial speed increase
 # July     14, 2019 - relaxing with a certain type of creativity
 # July      4, 2020 - initializing reader-trust; jevggra va n svg bs perngvir ybaryvarff
+# November 26, 2020 - changed output to jpg, and this was a surprise; on Thanksgiving in Lancaster during a pandemic
 
 
 # configure
@@ -33,7 +34,7 @@ SIZE=$2
 # make sane
 mkdir -p $PAGES
 mkdir -p $CACHE
-rm -rf $PAGES/*.png
+rm -rf $PAGES/*.jpg
 
 # harvest each page
 seq 1 $SIZE | parallel $HARVEST $HTID {}
@@ -41,6 +42,6 @@ wait
 
 # build pdf and done
 OUTPUT=$( echo $HTID | sed "s/\//-/g" )
-convert "${PAGES}/*.png" "${CACHE}/${OUTPUT}.pdf"
+/usr/bin/convert "${PAGES}/*.jpg" "${CACHE}/${OUTPUT}.pdf"
 exit
 

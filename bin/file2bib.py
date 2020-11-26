@@ -10,6 +10,7 @@
 # September  1, 2019 - added cache and txt fields
 # September 11, 2019 - looked for previously created bibliographic data
 # December  23, 2019 - started using Textacy
+# November  26, 2020 - configured model; on Thanksgiving in Lancaster during a pandemic
 
 
 # configure
@@ -18,6 +19,7 @@ RATIO    = 0.05
 CACHE    = './cache'
 TXT      = './txt'
 DATABASE = './etc/reader.db'
+MODEL    = 'en_core_web_lg'
 
 # require
 from gensim.summarization import summarize
@@ -114,7 +116,7 @@ summary    = re.sub( '\s+', ' ', summary )
 
 # initialize model
 maximum = len( text ) + 1
-model   = spacy.load( 'en_core_web_sm', max_length=maximum )
+model   = spacy.load( MODEL, max_length=maximum )
 
 # model the data; this needs to be improved
 doc = model( text )

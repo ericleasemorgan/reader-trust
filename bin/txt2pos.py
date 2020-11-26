@@ -6,7 +6,11 @@
 # (c) University of Notre Dame and distributed under a GNU Public License
 
 # July 1, 2018 - first cut, or there abouts
+# November 26, 2020 - configured model; on Thanksgiving in Lancaster during a pandemic
 
+
+# configure
+MODEL = 'en_core_web_lg'
 
 # require
 from nltk import *
@@ -22,7 +26,7 @@ if len( sys.argv ) != 2 :
 
 # initialize
 file = sys.argv[ 1 ]
-nlp  = spacy.load( 'en_core_web_sm' )
+nlp  = spacy.load( MODEL )
 
 # limit ourselves to a few processors only
 #os.system( "taskset -pc 0-1 %d > /dev/null" % os.getpid() )

@@ -5,19 +5,13 @@
 # Eric Lease Morgan <emorgan@nd.edu>
 # (c) University of Notre Dame and distributed under a GNU Public License
 
-# April  3, 2020 - first investigations
-# May   15, 2020 - added JSON to txt functionality 
-# May   31, 2020 - sent report to STDOUT, thus making the simple report visible 
-# July   4, 2020 - initializing reader-trust; jevggra va n svg bs perngvir ybaryvarff
+# April     3, 2020 - first investigations
+# May      15, 2020 - added JSON to txt functionality 
+# May      31, 2020 - sent report to STDOUT, thus making the simple report visible 
+# July      4, 2020 - initializing reader-trust; jevggra va n svg bs perngvir ybaryvarff
+# November 26, 2020 - removed Tika and deleted tmp; on Thanksgiving in Lancaster during a pandemic
 
 
-# enhance environment
-#PERL_HOME='/export/perl/bin'
-#JAVA_HOME='/export/java/bin'
-PYTHON_HOME='/data-disk/python/bin'
-#PATH=$PYTHON_HOME:$PERL_HOME:$JAVA_HOME:$PATH
-PATH=$PYTHON_HOME:$PATH
-export PATH
 
 # configure
 CARRELS="$READERTRUST_HOME/carrels"
@@ -62,14 +56,8 @@ cat ./tmp/update-bibliographics.sql | sqlite3 $DB
 # build the carrel; the magic happens here
 echo "Building study carrel named $NAME" >&2
 
-# start tika
-java -jar /data-disk/lib/tika-server.jar &
-PID=$!
-sleep 10
-
 # extract parts-of-speech, named entities, etc
 $MAP $NAME
-kill $PID
 
 # build the database
 $REDUCE $NAME
@@ -92,13 +80,12 @@ $MAKEPAGES $NAME
 
 # zip it up
 echo "Zipping study carrel" >&2
-#rm -rf ./tmp
-#cp "$LOG/$NAME.log" "$NAME/log" 
+rm -rf ./tmp
 $CARREL2ZIP $NAME
-echo "" >&2
 
 # make zip file accessible
 cp "./etc/reader.zip" "./study-carrel.zip"
 
 # done
+echo "Done creating carrel from hathitrust metadata file" >&2
 exit

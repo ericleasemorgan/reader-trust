@@ -8,6 +8,7 @@
 # February 10, 2019 - first cut
 # February 16, 2019 - gonna call it done, but software is never finished
 # July      4, 2020 - initializing reader-trust; jevggra va n svg bs perngvir ybaryvarff
+# November 26, 2020 - changed output to jpg, and this was a surprise; on Thanksgiving in Lancaster during a pandemic
 
 
 # configure
@@ -50,7 +51,7 @@ while( $done eq 'false' ) {
 		);
 
 	# debug
-	warn join( "\t", ( $htid, 'png', $page, $response->code ) ), "\n";
+	warn join( "\t", ( $htid, 'jpg', $page, $response->code ) ), "\n";
 
 	# output, conditionally and done
 	if ( $response->code == '200' ) {
