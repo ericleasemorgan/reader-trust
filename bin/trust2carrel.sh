@@ -30,6 +30,7 @@ MAP='map.sh'
 METADATA2SQL='metadata2sql.py'
 REDUCE='reduce.sh'
 METADATA2SQL='metadata2sql.py'
+CARREL2PATRONS='carrel2patrons.sh'
 
 # get the name of newly created directory
 NAME=$( pwd )
@@ -86,6 +87,8 @@ $CARREL2ZIP $NAME
 # make zip file accessible
 cp "./etc/reader.zip" "./study-carrel.zip"
 
+# move the carrel to patron's cache
+$CARREL2PATRONS $NAME
+
 # done
-echo "Done creating carrel from hathitrust metadata file" >&2
 exit
