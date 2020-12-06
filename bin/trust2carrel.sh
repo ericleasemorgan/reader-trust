@@ -31,11 +31,15 @@ METADATA2SQL='metadata2sql.py'
 REDUCE='reduce.sh'
 METADATA2SQL='metadata2sql.py'
 CARREL2PATRONS='carrel2patrons.sh'
+EMAILPATRON='email-patron.sh'
 
 # get the name of newly created directory
 NAME=$( pwd )
 NAME=$( basename $NAME )
 echo "Carrel name: $NAME" >&2
+
+# send a status message
+$EMAILPATRON $NAME started
 
 # create a study carrel
 echo "Creating study carrel named $NAME" >&2
@@ -76,6 +80,9 @@ tr -s ' ' < ./tmp/corpus.003 > "$CORPUS"
 $DB2REPORT $NAME > "$CARRELS/$NAME/$REPORT"
 cat "$CARRELS/$NAME/$REPORT"
 
+# send a status message
+$EMAILPATRON $NAME processing
+
 # create about file
 $MAKEPAGES $NAME
 
@@ -86,6 +93,9 @@ $CARREL2ZIP $NAME
 
 # make zip file accessible
 cp "./etc/reader.zip" "./study-carrel.zip"
+
+# send a status message
+$EMAILPATRON $NAME finished
 
 # move the carrel to patron's cache
 $CARREL2PATRONS $NAME
