@@ -19,6 +19,7 @@ CORPUS="./etc/reader.txt"
 DB='./etc/reader.db'
 REPORT='./etc/report.txt'
 METADATA='./metadata.tsv'
+TIKASERVER='/ocean/projects/cis210016p/shared/lib/tika-server.jar'
 
 # require
 CARREL2ZIP='carrel2zip.pl'
@@ -57,12 +58,19 @@ cat ./tmp/bibliographics.sql >> ./tmp/update-bibliographics.sql
 echo "END TRANSACTION;"      >> ./tmp/update-bibliographics.sql
 cat ./tmp/update-bibliographics.sql | sqlite3 $DB
 
-
 # build the carrel; the magic happens here
 echo "Building study carrel named $NAME" >&2
 
+# start tika
+java -jar $TIKASERVER &
+PID=$!
+sleep 10
+
 # extract parts-of-speech, named entities, etc
 $MAP $NAME
+
+# kill Tika
+kill $PID
 
 # build the database
 $REDUCE $NAME

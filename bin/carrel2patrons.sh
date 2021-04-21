@@ -11,7 +11,7 @@
 # configure
 CARRELS="$READERTRUST_HOME/carrels"
 PROVENANCE='provenance.tsv'
-PATRONS='/data-disk/www/html/library/patrons'
+PATRONS='/ocean/projects/cis210016p'
 TEMPLATE="$READERTRUST_HOME/etc/template-htaccess.txt"
 
 # get input

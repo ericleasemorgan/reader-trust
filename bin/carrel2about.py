@@ -31,7 +31,7 @@ PLOTSIZES  = 'plot-sizes.sh'
 TOPICMODEL = 'topic-model.py'
 TEMPLATE   = READERTRUST_HOME + '/etc/template-trust2carrel.htm'
 PROVENANCE = './provenance.tsv'
-PATRONS    = '/data-disk/etc/reader-patrons.db'
+PATRONS    = '/ocean/projects/cis210016p/shared/etc/reader-patrons.db'
 
 # require
 from sqlalchemy import create_engine

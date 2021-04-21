@@ -9,7 +9,7 @@
 
 
 # configure
-BACKLOG='/data-disk/reader-compute/reader-trust/queue/backlog'
+BACKLOG='/ocean/projects/cis210016p/shared/reader-compute/reader-trust/queue/backlog'
 TRUST2CARREL='trust2carrel.sh'
 CARRELS="$READERTRUST_HOME/carrels"
 
