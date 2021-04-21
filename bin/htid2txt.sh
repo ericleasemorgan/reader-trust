@@ -18,6 +18,7 @@ PAGES='./tmp/pages'
 TXT='./txt'
 TMP='./tmp'
 MAXIMUM=10000
+JOBS='24'
 
 # sanity check
 if [[ -z $1 ]]; then
@@ -45,7 +46,7 @@ OUTPUT=$( echo $HTID | sed "s/\//-/g" )
 if [[ -f "${TXT}/${OUTPUT}.txt" ]]; then exit 0; fi
 
 # harvest each page
-seq 1 $MAXIMUM | parallel $HARVEST $HTID
+seq 1 $MAXIMUM | parallel --jobs $JOBS $HARVEST $HTID
 
 # build the book and output
 BOOK=$( cat $PAGES/*.txt )

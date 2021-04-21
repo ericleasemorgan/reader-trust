@@ -16,7 +16,7 @@
 HARVEST='harvest-pdf.sh'
 PAGES='./tmp/pages'
 CACHE='./cache'
-
+JOBS='24' 
 # sanity check
 if [[ -z $1 || -z $2 ]]; then
 	echo "Usage: $0 <HathiTrust identifier> <size>" >&2
@@ -37,7 +37,7 @@ mkdir -p $CACHE
 rm -rf $PAGES/*.jpg
 
 # harvest each page
-seq 1 $SIZE | parallel $HARVEST $HTID {}
+seq 1 $SIZE | parallel --jobs $JOBS $HARVEST $HTID {}
 wait
 
 # build pdf and done
