@@ -1,5 +1,5 @@
 AuthType Basic
 AuthName "Authentication Required"
-AuthUserFile "/ocean/projects/cis210016p/shared/etc/reader-htpasswd"
+AuthUserFile "/data-disk/etc/reader-htpasswd"
 Require user ##PATRON##
 HeaderName /includes/header-patron.html

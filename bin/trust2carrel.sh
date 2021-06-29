@@ -11,8 +11,6 @@
 # July      4, 2020 - initializing reader-trust; jevggra va n svg bs perngvir ybaryvarff
 # November 26, 2020 - removed Tika and deleted tmp; on Thanksgiving in Lancaster during a pandemic
 
-
-
 # configure
 CARRELS="$READERTRUST_HOME/carrels"
 CORPUS="./etc/reader.txt"
@@ -62,15 +60,15 @@ cat ./tmp/update-bibliographics.sql | sqlite3 $DB
 echo "Building study carrel named $NAME" >&2
 
 # start tika
-java -jar $TIKASERVER &
-PID=$!
-sleep 10
+#java -jar $TIKASERVER &
+#PID=$!
+#sleep 10
 
 # extract parts-of-speech, named entities, etc
 $MAP $NAME
 
 # kill Tika
-kill $PID
+#kill $PID
 
 # build the database
 $REDUCE $NAME
